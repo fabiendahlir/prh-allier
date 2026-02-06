@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRH Allier - Page d'accueil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Bannière */
+        .banner {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23367588" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .banner h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .banner .separator {
+            width: 200px;
+            height: 4px;
+            background: #FF8C00;
+            margin: 20px auto;
+        }
+        
+        .banner p {
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Encart besoin d'aide */
+        .help-box {
+            background: #FF8C00;
+            color: white;
+            padding: 30px;
+            margin: -50px auto 40px;
+            max-width: 900px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .help-box h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .help-box p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #FF8C00;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #367588;
+            color: white;
+        }
+        
+        /* Section présentation */
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section h2 {
+            color: #367588;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .missions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .mission-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #FF8C00;
+        }
+        
+        .mission-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .mission-card h3 {
+            color: #367588;
+            margin-bottom: 10px;
+        }
+        
+        /* Contacts par territoire */
+        .territory-contacts {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .contact-card h3 {
+            color: #367588;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FF8C00;
+        }
+        
+        .contact-card .name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        
+        .contact-card .communes {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* Chiffres clés */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            background: #367588;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .stat-box .number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #FF8C00;
+        }
+        
+        .stat-box .label {
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+        
+        /* Actualités */
+        .news {
+            padding: 60px 0;
+        }
+        
+        .news-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #FF8C00;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .news-item .date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .news-item h3 {
+            color: #367588;
+            margin-bottom: 10px;
+        }
+        
+        /* Accès rapides */
+        .quick-access {
+            background: #367588;
+            padding: 60px 0;
+        }
+        
+        .quick-access h2 {
+            color: white;
+        }
+        
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .access-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .access-card .icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
+        
+        .access-card h3 {
+            color: #367588;
+            font-size: 1.2em;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .logo-item {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #367588;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Bannière -->
+    <div class="banner">
+        <h1>Pôle Ressources Handicap de l'Allier</h1>
+        <div class="separator"></div>
+        <p>Accompagner l'inclusion des enfants en situation de handicap</p>
+    </div>
+    
+    <!-- Encart besoin d'aide -->
+    <div class="container">
+        <div class="help-box">
+            <h2>Vous êtes professionnel et vous avez besoin d'accompagnement ?</h2>
+            <p>Le PRH Allier accompagne les professionnels de la petite enfance et des loisirs pour développer des pratiques inclusives et faciliter l'accueil des enfants en situation de handicap.</p>
+            <a href="#contact" class="btn">Nous contacter</a>
+        </div>
+    </div>
+    
+    <!-- Présentation -->
+    <section class="section">
+        <div class="container">
+            <h2>Le PRH Allier, c'est quoi ?</h2>
+            <div class="section-content">
+                <p style="font-size: 1.1em; margin-bottom: 30px;">
+                    Le Pôle Ressources Handicap de l'Allier est opérationnel depuis mai 2025. Porté par le DAHLIR en partenariat avec la CAF, la MDA, la MSA et l'ARS, il soutient les professionnels de la petite enfance et des loisirs pour rendre l'accueil plus inclusif sur l'ensemble du département.
+                </p>
+            </div>
+            
+            <div class="missions">
+                <div class="mission-card">
+                    <div class="icon">🌐</div>
+                    <h3>Mission 2</h3>
+                    <p><strong>Animer le réseau partenarial</strong><br>
+                    Mobiliser et coordonner les acteurs du territoire (médico-social, structures d'accueil, institutions) pour développer une dynamique collective d'inclusion.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="icon">🎓</div>
+                    <h3>Mission 3</h3>
+                    <p><strong>Former et sensibiliser les professionnels</strong><br>
+                    Accompagner la montée en compétences des équipes à travers des sensibilisations collectives et des accompagnements personnalisés.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #fff3e0; border-radius: 8px;">
+                <p style="color: #666; font-style: italic;">
+                    <strong>ℹ️ Important :</strong> Le PRH accompagne les professionnels. Pour l'accompagnement individualisé des enfants et de leur famille, contactez le <strong>DAHLIR Handicap ACM</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Nos actions -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2>Nos actions concrètes</h2>
+            
+            <div class="missions">
+                <div class="mission-card">
+                    <div class="icon">🤝</div>
+                    <h3>Animation du réseau territorial</h3>
+                    <p>Mobilisation et coordination des acteurs médico-sociaux, structures petite enfance et jeunesse, associations de familles pour développer un écosystème inclusif.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="icon">📚</div>
+                    <h3>Sensibilisations collectives</h3>
+                    <p>Sessions de découverte sur les fondamentaux de l'accueil inclusif : cadre juridique, compréhension des handicaps, adaptation des activités.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="icon">🎯</div>
+                    <h3>Accompagnements personnalisés</h3>
+                    <p>Conseils techniques et observation sur site pour adapter les pratiques professionnelles aux besoins spécifiques de chaque structure.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="icon">🧰</div>
+                    <h3>Ressources et outils</h3>
+                    <p>Mise à disposition de supports pratiques, malles pédagogiques, documentation spécialisée et partage d'expériences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contacts par territoire -->
+    <section class="territory-contacts">
+        <div class="container">
+            <h2>Vos contacts par territoire</h2>
+            
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <h3>🌄 Bassin de Vichy</h3>
+                    <div class="name">Anna</div>
+                    <p>📧 [email]<br>📞 [tel]</p>
+                    <div class="communes">Vichy, Bellerive, Cusset, St Germain des Fossés, St Yorre, Gannat, Lapalisse</div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>🏛️ Bassin de Moulins</h3>
+                    <div class="name">Aurélie</div>
+                    <p>📧 [email]<br>📞 [tel]</p>
+                    <div class="communes">Moulins, Yzeure, Jaligny, Neuilly-le-Réal, Cressanges, Dompierre, Beaulon</div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>🏛️ Bassin de Moulins</h3>
+                    <div class="name">[Prénom]</div>
+                    <p>📧 [email]<br>📞 [tel]</p>
+                    <div class="communes">Varennes sur Allier, Bellenaves, St Rémy en Rollat, St Pourçain, Mazerier</div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>🏭 Bassin de Montluçon</h3>
+                    <div class="name">Jean-Eudes</div>
+                    <p>📧 [email]<br>📞 [tel]</p>
+                    <div class="communes">Montluçon, Commentry, Lurcy-Lévis, Vaux</div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>🏭 Bassin de Montluçon</h3>
+                    <div class="name">Ingrid</div>
+                    <p>📧 [email]<br>📞 [tel]</p>
+                    <div class="communes">Cosne d'Allier, Désertines, Montmarault, Prémilhat, Villefranche d'Allier, Huriel</div>
+                </div>
+                
+                <div class="contact-card" style="background: #fff3e0;">
+                    <h3>📍 Coordination départementale</h3>
+                    <div class="name">Fabien CIZEAU</div>
+                    <p>📧 [email]<br>📞 [tel]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Actualités -->
+    <section class="news">
+        <div class="container">
+            <h2>📰 Actualités</h2>
+            
+            <div class="news-item">
+                <div class="date">📅 Février 2026</div>
+                <h3>Lancement du site ressources PRH Allier</h3>
+                <p>Le PRH Allier met à disposition des professionnels un espace de ressources en ligne pour faciliter l'accueil inclusif : outils pratiques, formations, réseau partenarial...</p>
+            </div>
+            
+            <div class="news-item">
+                <div class="date">📅 À venir - 2025</div>
+                <h3>Prochaines formations et sensibilisations</h3>
+                <p>Les premières sessions de sensibilisation collective démarreront à partir d'octobre 2025. Découvrez le calendrier des formations à venir.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Accès rapides -->
+    <section class="quick-access">
+        <div class="container">
+            <h2>Accès rapides</h2>
+            
+            <div class="access-grid">
+                <a href="#" class="access-card">
+                    <div class="icon">👶</div>
+                    <h3>Je suis professionnel<br>petite enfance</h3>
+                </a>
+                
+                <a href="#" class="access-card">
+                    <div class="icon">🎨</div>
+                    <h3>Je suis professionnel<br>enfance/jeunesse</h3>
+                </a>
+                
+                <a href="#" class="access-card">
+                    <div class="icon">🤝</div>
+                    <h3>Je suis partenaire<br>du réseau</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logos">
+                <div class="logo-item">DAHLIR</div>
+                <div class="logo-item">CAF</div>
+                <div class="logo-item">MDA</div>
+                <div class="logo-item">MSA</div>
+                <div class="logo-item">ARS</div>
+            </div>
+            <p>© 2026 PRH Allier - Pôle Ressources Handicap de l'Allier</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
