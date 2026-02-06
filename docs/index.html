@@ -17,17 +17,19 @@
             color: #333;
         }
         
-        /* Header avec logos */
-        .top-header {
-            background: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* Bannière avec logos intégrés */
+        .banner {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23367588" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 20px 80px;
+            text-align: center;
         }
         
-        .header-logos {
+        .banner-logos {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            margin: 0 auto 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -35,19 +37,10 @@
             gap: 30px;
         }
         
-        .header-logos img {
-            max-height: 80px;
+        .banner-logos img {
+            max-height: 70px;
             width: auto;
-        }
-        
-        /* Bannière */
-        .banner {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23367588" width="1200" height="400"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
+            filter: brightness(0) invert(1);
         }
         
         .banner h1 {
@@ -389,16 +382,12 @@
 </head>
 <body>
     
-    <!-- Header avec logos -->
-    <div class="top-header">
-        <div class="header-logos">
+    <!-- Bannière avec logos -->
+    <div class="banner">
+        <div class="banner-logos">
             <img src="images/logo-dahlir.png" alt="DAHLIR">
             <img src="images/logo-caf.png" alt="CAF Allier">
         </div>
-    </div>
-    
-    <!-- Bannière -->
-    <div class="banner">
         <h1>Pôle Ressources Handicap de l'Allier</h1>
         <div class="separator"></div>
         <p>Accompagner les professionnels pour un accueil inclusif</p>
